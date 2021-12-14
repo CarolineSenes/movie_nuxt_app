@@ -10,14 +10,12 @@
         />
       </div>
       <div class="movie-content">
-        <h1>Title: {{ movie.title }}</h1>
-        <p class="movie-fact tagline">
-          <span>Tagline:</span>"{{ movie.tagline }}"
-        </p>
+        <h1>{{ movie.title }}</h1>
+        <p v-if="movie.tagline" class="movie-fact tagline">"{{ movie.tagline }}"</p>
         <p class="movie-fact">
-          <span>Released:</span>
+          <span>Date de sortie:</span>
           {{
-            new Date(movie.release_date).toLocaleString('en-us', {
+            new Date(movie.release_date).toLocaleString('fr-FR', {
               month: 'long',
               day: 'numeric',
               year: 'numeric',
@@ -25,10 +23,20 @@
           }}
         </p>
         <p class="movie-fact">
-          <span>Duration:</span> {{ movie.runtime }} minutes
+          <span>Durée:</span> {{ movie.runtime }} minutes
         </p>
-        <p class="movie-fact">
-          <span>Released:</span>
+        <p v-if="movie.budget > 1" class="movie-fact">
+          <span>Budget:</span>
+          {{
+            movie.budget.toLocaleString('en-us', {
+              style: 'currency',
+              currency: 'USD',
+            })
+          }}
+        </p>
+
+        <p v-if="movie.revenue > 1" class="movie-fact">
+          <span>Revenus:</span>
           {{
             movie.revenue.toLocaleString('en-us', {
               style: 'currency',
@@ -36,7 +44,7 @@
             })
           }}
         </p>
-        <p class="movie-fact"><span>Overview:</span>{{ movie.overview }}</p>
+        <p class="movie-fact"><span>Synopsis:</span> {{ movie.overview }}</p>
       </div>
     </div>
   </div>
@@ -56,7 +64,7 @@ export default {
   async fetch() {
     await this.getSingleMovie()
   },
-  head(){
+  head() {
     return {
       title: this.movie.title,
     }
@@ -64,7 +72,7 @@ export default {
   methods: {
     async getSingleMovie() {
       const data = axios.get(
-        `https://api.themoviedb.org/3/movie/${this.$route.params.movieid}?api_key=9555a0d7995348b1c287641cb485186e&language=en-US`
+        `https://api.themoviedb.org/3/movie/${this.$route.params.movieid}?api_key=9555a0d7995348b1c287641cb485186e&language=fr`
       )
       const result = await data
       this.movie = result.data
@@ -127,4 +135,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>

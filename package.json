@@ -27,5 +27,17 @@
     "prettier": "^2.3.2",
     "sass": "^1.45.0",
     "sass-loader": "^10.2.0"
-  }
+  },
+  "description": "```bash\r # install dependencies\r $ npm install",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarolineSenes/movie_nuxt_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarolineSenes/movie_nuxt_app/issues"
+  },
+  "homepage": "https://github.com/CarolineSenes/movie_nuxt_app#readme"
 }
