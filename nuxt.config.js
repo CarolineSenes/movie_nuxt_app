@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Movie App - Latest Streaming Movie Info',
+    title: 'Movie App - Les dernières sorties de films',
     htmlAttrs: {
       lang: 'fr'
     },
@@ -36,6 +36,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-helmet',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
