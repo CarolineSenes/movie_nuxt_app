@@ -11,7 +11,9 @@
         placeholder="Search"
         v-model.lazy="searchInput"
       />
-      <button v-show="searchInput !== ''" class="button" @click="clearSearch">Clear Search</button>
+      <button v-show="searchInput !== ''" class="button" @click="clearSearch">
+        Clear Search
+      </button>
     </div>
 
     <!-- Loading -->
@@ -112,6 +114,23 @@ export default {
     }
     await this.searchMovies()
   },
+  head() {
+    return {
+      title: 'Movie App - Latest Streaming Movie Info',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Get all the latest streaming movies in theaters & online',
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'movies, stream, streaming',
+        },
+      ],
+    }
+  },
   methods: {
     async getMovies() {
       const data = axios.get(
@@ -131,9 +150,9 @@ export default {
         this.searchedMovies.push(movie)
       })
     },
-    clearSearch(){
-      this.searchInput =''
-      this.searchedMovies =[]
+    clearSearch() {
+      this.searchInput = ''
+      this.searchedMovies = []
     },
   },
 }
