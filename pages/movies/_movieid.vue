@@ -6,7 +6,7 @@
       <div class="movie-img">
         <img
           :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-          alt="`${movie.title}`"
+          alt="`affiche du film ${movie.title}`"
         />
       </div>
       <div class="movie-content">

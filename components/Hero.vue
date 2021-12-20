@@ -3,8 +3,7 @@
     <img src="../assets/imgs/movieHero.jpg" alt="" />
     <div class="text-container">
         <div class="text">
-            <span class="mini-heading">Now Streaming</span>
-            <h1><span>Now</span> Streaming</h1>
+            <h1 lang="en"><span lang="en">Now</span> Streaming</h1>
             <a href="#movie-grid" class="button">Voir les films</a>
         </div>
     </div>
@@ -53,16 +52,6 @@ export default {
       width: 100%;
       max-width: 1400px;
       margin: 0 auto;
-    }
-    .mini-heading {
-      font-weight: 600;
-      font-size: 18px;
-      text-transform: uppercase;
-      color: #c92502;
-      margin-bottom: 8px;
-      @media (min-width: 750px) {
-        font-size: 22px;
-      }
     }
     h1 {
       color: #fff;

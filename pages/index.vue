@@ -1,14 +1,15 @@
 <template>
-  <div class="home">
+  <main class="home">
     <!-- Hero -->
     <Hero />
 
     <!-- Search -->
-    <div class="container search">
+    <div class="container search" role="search">
       <input
         v-model.lazy="searchInput"
         type="text"
         placeholder="Chercher un film ..."
+        aria-label="Chercher un film"
         @keyup.enter="$fetch"
       />
       <button v-show="searchInput !== ''" class="button" @click="clearSearch">
@@ -20,7 +21,7 @@
     <Loading v-if="$fetchState.pending" />
 
     <!-- Movies -->
-    <div v-else class="container movies">
+    <section v-else class="container movies">
       <!-- Searched Movies -->
       <div v-if="searchInput !== ''" id="movie-grid" class="movies-grid">
         <div
@@ -31,7 +32,7 @@
           <div class="movie-img">
             <img
               :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-              alt="`${movie.title}`"
+              alt=""
             />
             <p class="review">{{ movie.vote_average }}</p>
             <p class="overview">
@@ -40,10 +41,10 @@
             </p>
           </div>
           <div class="info">
-            <p class="title">
+            <h2 class="title">
               {{ movie.title.slice(0, 25) }}
               <span v-if="movie.title.length > 25">...</span>
-            </p>
+            </h2>
             <p class="release">
               Sortie:
               {{
@@ -68,7 +69,7 @@
           <div class="movie-img">
             <img
               :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-              alt="`${movie.title}`"
+              alt=""
             />
             <p class="review">{{ movie.vote_average }}</p>
             <p class="overview">
@@ -77,12 +78,12 @@
             </p>
           </div>
           <div class="info">
-            <p class="title">
+            <h2 class="title">
               {{ movie.title.slice(0, 25) }}
               <span v-if="movie.title.length > 25">...</span>
-            </p>
+            </h2>
             <p class="release">
-              Sortie:
+              Date de sortie:  
               {{
                 new Date(movie.release_date).toLocaleString('fr-fr', {
                   month: 'long',
@@ -99,8 +100,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -122,17 +123,17 @@ export default {
   },
   head() {
     return {
-      title: 'Movie App - Latest Streaming Movie Info',
+      title: `Movie App - Actu des films à l'affiche`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Get all the latest streaming movies in theaters & online',
+          content: `Tous les derniers films à l'affiche dans les cinémas et en ligne`,
         },
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'movies, stream, streaming',
+          content: 'films, cinéma, affiche, vod',
         },
       ],
     }
