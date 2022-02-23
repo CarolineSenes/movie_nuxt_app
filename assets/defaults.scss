@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
 
+$primary-color: #c92502;
+$primary-dark-color: #891b02;
+$bg-color: #211f1f;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +24,7 @@
 }
 
 .app {
-  background-color: #211f1f;
+  background-color: $bg-color;
   min-height: 100vh;
 }
 
@@ -28,7 +33,7 @@
   text-decoration: none;
   color: inherit;
   padding: 8px 16px;
-  background-color: #c92502;
+  background-color: $primary-color;
   border: none;
   color: #fff;
   border-radius: 4px;
@@ -36,13 +41,13 @@
   transition: 0.3s ease all;
 
   &:hover {
-    background-color: #891b02;
+    background-color: $primary-dark-color;
   }
 }
 
 .button-light {
   background-color: transparent;
-  border: 1px solid #c92502;
+  border: 1px solid $primary-color;
 
   &:hover {
     border-color: transparent;
@@ -53,5 +58,4 @@
   max-width: 1400px;
   margin: 0 auto;
 }
-
 

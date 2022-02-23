@@ -34,6 +34,7 @@ export default {
     '@nuxtjs/eslint-module',
   ],
 
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-helmet',

@@ -4,18 +4,19 @@
     <Hero />
 
     <!-- Search -->
-    <div class="container search" role="search">
+    <form class="container search" role="search">
+      <label class="sr-only" for="search">Chercher un film</label>
       <input
         v-model.lazy="searchInput"
         type="text"
-        placeholder="Chercher un film ..."
-        aria-label="Chercher un film"
+        placeholder="Nom du film à chercher ..."
+        aria-label="Nom du film à chercher"
         @keyup.enter="$fetch"
       />
       <button v-show="searchInput !== ''" class="button" @click="clearSearch">
         Effacer la recherche
       </button>
-    </div>
+    </form>
 
     <!-- Loading -->
     <Loading v-if="$fetchState.pending" />
@@ -83,7 +84,7 @@
               <span v-if="movie.title.length > 25">...</span>
             </h2>
             <p class="release">
-              Date de sortie:  
+              Date de sortie:
               {{
                 new Date(movie.release_date).toLocaleString('fr-fr', {
                   month: 'long',
@@ -123,17 +124,17 @@ export default {
   },
   head() {
     return {
-      title: `Movie App - Actu des films à l'affiche`,
+      title: `Movie App - Les derniers films à l'affiche`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `Tous les derniers films à l'affiche dans les cinémas et en ligne`,
+          content: `Tous les derniers films à l'affiche dans les cinémas et plateformes de streaming`,
         },
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'films, cinéma, affiche, vod',
+          content: 'films, cinema, streaming, vod',
         },
       ],
     }
@@ -179,10 +180,17 @@ export default {
       width: 100%;
       padding: 12px 6px;
       font-size: 14px;
-      border: none;
-      &:focus {
-        outline: none;
-      }
+    }
+    .sr-only {
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
     }
     .button {
       border-top-left-radius: 0;
