@@ -19,6 +19,8 @@ et déployée sur Heroku.
 **Client:** NuxtJS, Sass
 **Server:** Node
 
+## Optimisation
+![desktop_movies](https://github.com/CarolineSenes/movie_nuxt_app/blob/master/assets/imgs/screenshots/lighthouse.png)
   
 ## Problème rencontré et solution
 
